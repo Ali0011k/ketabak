@@ -1,0 +1,52 @@
+*{
+    transition: 0.5s!important;
+    direction: ltr!important;
+    
+}
+
+
+
+.tb-content input , textarea {
+    background-color: #343a40;
+    color: #fff;
+    border: none!important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    margin: auto!important;
+}
+
+#id_tags{
+    display: block;
+    width: 100%;
+    padding: 10px;
+}
+
+#changelist-search .form-group{
+    margin: 10px !important;
+}
+
+.alert-success a{
+    color: #fff!important;
+}
+
+.related-widget-wrapper select{
+    color: #3b3838c4!important;
+}
+
+a{
+    text-decoration: none!important;
+}
+
+div.inline-related {
+    padding: 10px;
+}
+
+.form-row {
+    padding: 5px;
+}
+
+.brand-text {
+    color: #fff!important;
+    font-weight: 500!important;
+}
