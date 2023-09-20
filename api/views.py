@@ -1,12 +1,14 @@
-from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from books.models import *
 from api.serializers import BookSerializer
-
+from api.permissions import IsSuperUser
+from books.models import *
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view , permission_classes
+from rest_framework.response import Response
 
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated , IsSuperUser])
 def book_list_and_create(request):
     if request.method == 'GET':
         books = Book.objects.all()
@@ -22,6 +24,7 @@ def book_list_and_create(request):
     
 
 @api_view(['GET' , 'PUT' , 'DELETE'])
+@permission_classes([IsAuthenticated , IsSuperUser])
 def book_update(request):
     try:
     
