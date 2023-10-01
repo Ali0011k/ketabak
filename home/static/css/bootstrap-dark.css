@@ -50,3 +50,15 @@ div.inline-related {
     color: #fff!important;
     font-weight: 500!important;
 }
+
+.object-tools{
+    display: flex!important;
+}
+
+.import_link{
+    margin-left: -20%!important;
+}
+
+.export_link{
+    margin-left: -20%!important;
+}
