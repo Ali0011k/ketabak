@@ -3,12 +3,11 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [bookData, setBookData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [selectedBook, setSelectedBook] = useState(null); // شی کتاب انتخاب شده
+  const [selectedBook, setSelectedBook] = useState(null); 
 
   useEffect(() => {
-    // تابع برای انجام درخواست GET برای دریافت اطلاعات کتاب
     const fetchBookData = () => {
-      return fetch('/api/data/content/books/') // آدرس API GET برای اطلاعات کتاب را جایگزین کنید
+      return fetch('/api/data/content/books/') 
         .then(response => {
           if (response.ok) {
             return response.json();
@@ -18,29 +17,24 @@ function App() {
         });
     };
 
-    // تابع برای انجام عملیات ورود (login)
     const performLogin = () => {
-      // اطلاعات ورود کاربر را به صورت یک شی JSON تعریف کنید
       const userData = {
         username: 'ali',
         password: 'ali0013khani',
-        // دیگر اطلاعات ورود
       };
     
-      // تنظیمات درخواست POST
       const requestOptions = {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(userData), // تبدیل اطلاعات به رشته JSON و ارسال آن به عنوان بدن درخواست
+        body: JSON.stringify(userData), 
       };
     
-      // انجام درخواست POST به آدرس `/admin/` (آدرس واقعی API خود را جایگزین کنید)
       return fetch('/admin/', requestOptions)
         .then(response => {
           if (response.ok) {
-            return true; // ورود موفقیت‌آمیز بوده است
+            return true; 
           } else {
             throw new Error('Login failed');
           }
@@ -48,7 +42,6 @@ function App() {
     };
     
 
-    // استفاده از Promise.all برای انجام همزمان دو درخواست GET و login
     Promise.all([fetchBookData(), performLogin()])
       .then(([bookData, loginResult]) => {
         setBookData(bookData);
@@ -59,7 +52,6 @@ function App() {
       });
   }, []);
 
-  // تابع برای تنظیم کتاب انتخاب شده
   const handleBookSelect = (bookName) => {
     const selected = bookData.find(book => book.name === bookName);
     setSelectedBook(selected);
@@ -97,5 +89,10 @@ function App() {
     </div>
   );
 }
-
+function data_element() {
+  let data = document.querySelector('#data');
+  let data_content = data.innerHTML;
+  data.remove();
+}
+document.addEventListener('DOMContentLoaded' , data_element());
 export default App;

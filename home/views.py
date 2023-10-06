@@ -1,9 +1,13 @@
+from books.models import *
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from time import sleep
 
 def home(request):
-    return render(request , 'index.html')
+    books = Book.objects.all()
+    return render(request , 'index.html' , {
+        'books':books
+    })
 
 
 
